@@ -1,40 +1,31 @@
 const express = require("express");
 const app = express();
-const http = require("http");
-const getReq = require("./methods/get-request");
-const postReq = require("./methods/post-request");
-const putReq = require("./methods/put-request");
-const deleteReq = require("./methods/delete-request");
-let library = require("./data/library.json");
-//require("dotenv").config();
+const port = 3001;
 
-const PORT = process.env.PORT || 5001;
-
-const server = http.createServer((req, res) => {
-  req.library = library;
-  switch (req.method) {
-    case "GET":
-      getReq(req, res);
-      break;
-    case "POST":
-      postReq(req, res);
-      break;
-    case "PUT":
-      putReq(req, res);
-      break;
-    case "DELETE":
-      deleteReq(req, res);
-      break;
-    default:
-      res.statusCode = 404;
-      res.setHeader("Content-Type", "application/json");
-      res.write(
-        JSON.stringify({ title: "Not Found", message: "Route not found" })
-      );
-      res.end();
-  }
+app.get("/", (req, res) => {
+  res.json({ message: "This is home page" });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server started on port : ${PORT}`);
+app.get("/library", (req, res) => {
+  res.json({ message: "Get All the Library" });
+});
+
+app.get("/library/:id", (req, res) => {
+  res.json({ message: `Get Library with ID ${req.params.id}` });
+});
+
+app.post("/library/", (req, res) => {
+  res.json({ message: `Create new Library` });
+});
+
+app.put("/users/:id", (req, res) => {
+  res.json({ message: `Update Library with ID ${req.params.id}` });
+});
+
+app.delete("/users/:id", (req, res) => {
+  res.json({ message: `Delete Library with ID ${req.params.id}` });
+});
+
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
