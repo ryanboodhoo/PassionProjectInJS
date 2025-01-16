@@ -1,3 +1,4 @@
+// UUID (Universally Unique Identifier) 32 digits displayed in 5 groups separated by hyphens (8-4-4-4-12).
 module.exports = (req, res) => {
     let baseUrl = req.url.substring(0, req.url.lastIndexOf("/") + 1);
     let id = req.url.split("/")[3];
