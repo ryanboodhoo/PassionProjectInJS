@@ -6,6 +6,9 @@ const deleteReq = require("./methods/delete-request");
 let library = require("./data/library.json");
 //require("dotenv").config();
 
+//http://localhost:5001/api/library
+//nodemon server.js
+
 const PORT = process.env.PORT || 5001;
 
 const server = http.createServer((req, res) => {
