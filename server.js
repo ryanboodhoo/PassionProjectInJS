@@ -1,3 +1,5 @@
+const express = require("express");
+const app = express();
 const http = require("http");
 const getReq = require("./methods/get-request");
 const postReq = require("./methods/post-request");
