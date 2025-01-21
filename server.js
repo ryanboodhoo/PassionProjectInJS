@@ -7,10 +7,8 @@ const postReq = require("./methods/post-request");
 const putReq = require("./methods/put-request");
 const deleteReq = require("./methods/delete-request");
 let library = require("./data/library.json");
-//require("dotenv").config();
 
-//http://localhost:5001/api/library
-//nodemon server.js
+
 
 const PORT = process.env.PORT || 5001;
 
@@ -69,3 +67,6 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+//http://localhost:5001/api/library
+//nodemon server.js
